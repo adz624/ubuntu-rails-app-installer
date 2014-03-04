@@ -26,5 +26,4 @@ git submodule init
 git submodule update
 
 # 3. Reload bash setting
-echo '~/.bash_profile' >> ~/.profile
-source ~/.profile
+source ~/.bash_profile
