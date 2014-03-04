@@ -8,7 +8,7 @@ rm -rf ~/.dotfiles
 git clone https://github.com/afunction/dotfiles ~/.dotfiles
 echo -e "\e[31mSetting up bash shell ... \e[0m"
 rm -rf ~/.bash_profile
-ln -s ~/.dotfiles/bash_profile_ubuntu .bash_profile
+ln -s ~/.dotfiles/bash_profile_ubuntu ~/.bash_profile
 
 echo -e "\e[31mSetting up vim ... \e[0m"
 rm -rf ~/.vimrc
