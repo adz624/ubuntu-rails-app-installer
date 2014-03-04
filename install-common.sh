@@ -30,6 +30,7 @@ ln -s .dotfiles/vimrc .vimrc
 echo -e "\e[31mSetting up git ... \e[0m"
 rm -rf .gitconfig
 ln -s .dotfiles/gitconfig .gitconfig
+ln -s .dotfiles/banner .banner
 
 # 5. 更新 vim plugin & bundles
 echo -e "\e[31mDownload vim color schema & bundles ... \e[0m"
