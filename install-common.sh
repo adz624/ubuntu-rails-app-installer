@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 echo -e "\e[31mAptitude - Update & Upgrade\e[0m"
 aptitude update
 aptitude upgrade
