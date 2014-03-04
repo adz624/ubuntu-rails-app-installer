@@ -1,4 +1,8 @@
 #!/bin/bash
+# @author eddie li (ADZ)
+# @updated_at 2014/3/5
+# @version 0.01
+
 echo -e "\e[31mAptitude - Update & Upgrade\e[0m"
 aptitude update
 aptitude upgrade
@@ -27,9 +31,12 @@ ln -s .dotfiles/gitconfig .gitconfig
 
 echo -e "\e[31mDownload vim color schema & bundles ... \e[0m"
 cd .dotfiles
-# 更新 vim,
+# 更新 vim, bundles
 git submodule init
 git submodule update
 
+# reload bash setting
+source ~/.bash_profile
+
 echo -e "\e[31mDownload Installer shell script ... \e[0m"
-git clone git@github.com:afunction/ubuntu-rails-app-installer.git installer
+git clone https://github.com/afunction/ubuntu-rails-app-installer.git installer
