@@ -4,6 +4,7 @@
 # @version 0.01
 
 # 1. 下載、並設定 bash, vim, gitconfig
+cd ~
 git clone https://github.com/afunction/dotfiles .dotfiles
 echo -e "\e[31mSetting up bash shell ... \e[0m"
 rm -rf .bash_profile
