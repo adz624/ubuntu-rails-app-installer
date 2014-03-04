@@ -22,7 +22,9 @@ ln -s .dotfiles/banner .banner
 # 2. 更新 vim plugin & bundles
 echo -e "\e[31mDownload vim color schema & bundles ... \e[0m"
 cd .dotfiles
-git submodule init && git submodule update
+git submodule init
+git submodule update
 
 # 3. Reload bash setting
-source ~/.bash_profile
+echo '~/.bash_profile' >> ~/.profile
+source ~/.profile
