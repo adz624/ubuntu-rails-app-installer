@@ -1,3 +1,4 @@
+#!/bin/sh
 aptitude update
 aptitude upgrade
 # 安裝常用工具
