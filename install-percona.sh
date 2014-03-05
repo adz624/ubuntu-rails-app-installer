@@ -32,7 +32,7 @@ else
 
   # 4. Setting mysql configuration
   echo -e "\e[31m[Percona] Setting mysql configuration ...\e[0m"
-  mv conf/percona.conf /etc/mysql/my.cnf
+  cp conf/my.cnf /etc/mysql/my.cnf
 
   # 5. Cleanup mysql log file, to change bigger size
   echo -e "\e[31m[Percona] Clearnup mysql log file ...\e[0m"
