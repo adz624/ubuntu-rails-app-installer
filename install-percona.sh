@@ -23,4 +23,4 @@ else
 fi
 
 echo -e "\e[31m[Percona] Install mysql ...\e[0m"
-aptitude install percona-server-server-5.5 percona-server-client-5.5
+aptitude install percona-server-server-5.5 percona-server-client-5.5 -y
