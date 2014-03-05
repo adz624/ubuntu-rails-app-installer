@@ -22,7 +22,7 @@ else
   echo -e "\e[31m[Percona] source exists ...\e[0m"
 fi
 
-if [ -f "/etc/init.d/mysql" ]; then
+if [ -f "/usr/bin/mysqld_safe" ]; then
   echo -e "\e[31mMySQL Already Installed, if you want to reinstall again, please remove mysql before run this script ...\e[0m"
 else
   # 3. Setting mysql configuration
