@@ -16,7 +16,8 @@ ln -s ~/.vim/vimrc ~/.vimrc
 
 echo -e "\e[31mSetting up git ... \e[0m"
 rm -rf ~/.gitconfig
-ln -s ~/.vim/gitconfig .gitconfig
+rm -rf ~/.banner
+ln -s ~/.vim/gitconfig ~/.gitconfig
 ln -s ~/.vim/banner ~/.banner
 
 # 2. 更新 vim plugin & bundles
