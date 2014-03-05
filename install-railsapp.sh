@@ -16,9 +16,8 @@ aptitude update
 aptitude install nodejs -y
 
 # 2. 新增 rails application deploy user
+echo -e "\e[31m[RailsAPP] Create deploy user = $DEPLOY_USER ...\e[0m"
 useradd $DEPLOY_USER -m -G $WEB_GROUP -s /bin/bash
-echo -e "\e[31m[RailsAPP] Setting Deploy user password ...\e[0m"
-passwd $DEPLOY_USER
 
 # 3. 授權 public key 登入 deploy user
 mkdir /home/$DEPLOY_USER/.ssh/
@@ -32,7 +31,7 @@ echo "$DEPLOY_USER  ALL=(ALL:ALL) ALL" >> /etc/sudoers
 echo -e "\e[31m[RailsAPP] Setting deploy user bash config ...\e[0m"
 mkdir /home/$DEPLOY_USER/.install
 cp install-bash.sh /home/$DEPLOY_USER/.install
-chown -R $DEPLOY_USER:$DEPLOY_USER
+chown -R $DEPLOY_USER:$DEPLOY_USER /home/$DEPLOY_USER
 su -c "cd /home/$DEPLOY_USER/.install && ./install-bash.sh" $DEPLOY_USER
 
 # 6. 安裝 rvm stable
@@ -51,3 +50,5 @@ su -l -c "rvm --default use $RUBY_VERSION" $DEPLOY_USER
 echo -e "\e[31m[RailsAPP] Installing Bundler ...\e[0m"
 su -l -c "gem install bundler" $DEPLOY_USER
 
+# 9. 產生 deploy key (跳過所有詢問視窗)
+su -l -c "ssh-keygen -f .ssh/id_rsa -t rsa -N '' && echo -e '\e[31m[RailsAPP] Please copy the deploy key paste to your github repo, make sure this key can pull your project ...\e[0m' && cat .ssh/id_rsa.pub" $DEPLOY_USER
