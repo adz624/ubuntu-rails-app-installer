@@ -9,7 +9,7 @@ aptitude update && aptitude upgrade
 
 # 2. 安裝常用工具
 echo -e "\e[31mInstall common tools\e[0m"
-aptitude install curl git-core python-software-properties bash-completion htop iftop tmux vim -y
+aptitude install curl git-core python-software-properties software-properties-common bash-completion htop iftop tmux vim -y
 echo -e "\e[31mDownload the shellscript configuration in current user home dir: ~/$(whoami)\e[0m"
 cd ~
 
