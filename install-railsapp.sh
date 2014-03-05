@@ -52,3 +52,7 @@ su -l -c "gem install bundler" $DEPLOY_USER
 
 # 9. 產生 deploy key (跳過所有詢問視窗)
 su -l -c "ssh-keygen -f .ssh/id_rsa -t rsa -N '' && echo -e '\e[31m[RailsAPP] Please copy the deploy key paste to your github repo, make sure this key can pull your project ...\e[0m' && cat .ssh/id_rsa.pub" $DEPLOY_USER
+
+
+# 10. 安裝 mysql lib client for gem => mysql2
+sudo apt-get install libmysqlclient-dev -y
