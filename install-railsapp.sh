@@ -29,4 +29,4 @@ echo -e "\e[31m[RailsAPP] Setting deploy user bash config ...\e[0m"
 mkdir /home/$DEPLOY_USER/.install
 cp install-bash.sh /home/$DEPLOY_USER/.install
 chown -R $DEPLOY_USER:$DEPLOY_USER /home/$DEPLOY_USER/.install
-su -c 'cd /home/$DEPLOY_USER/.install && ./install-bash.sh' $DEPLOY_USER
+su -c "cd /home/$DEPLOY_USER/.install && ./install-bash.sh" $DEPLOY_USER
