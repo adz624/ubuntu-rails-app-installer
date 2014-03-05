@@ -9,7 +9,7 @@ apt-key adv --keyserver keys.gnupg.net --recv-keys 1C4CBDCDCD2EFD2A
 
 # 2. Add apt source
 IF_SOURCE_ADDED=$(cat /etc/apt/sources.list | grep repo.percona.com | wc -l)
-if [$IF_SOURCE_ADDED == 0]; then
+if ["$IF_SOURCE_ADDED" == 0]; then
   UBUNTU_DISTRIB=$(cat /etc/*-release | grep DISTRIB_CODENAME | awk 'BEGIN {FS="="}{print $2}')
   echo -e "\e[31m[Percona] Add percona mysql apt source.list ...\e[0m"
   echo -e "\e[31m[Percona] DISTRIB_CODENAME=$UBUNTU_DISTRIB ...\e[0m"
