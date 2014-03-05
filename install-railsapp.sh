@@ -13,7 +13,7 @@ aptitude update
 aptitude install nodejs -y
 
 # 2. 新增 rails application deploy user
-useradd $DEPLOY_USER -G $WEB_GROUP -s /bin/bash
+useradd $DEPLOY_USER -m -G $WEB_GROUP -s /bin/bash
 echo -e "\e[31m[RailsAPP] Setting Deploy user password ...\e[0m"
 passwd $DEPLOY_USER
 
