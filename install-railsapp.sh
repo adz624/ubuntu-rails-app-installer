@@ -20,30 +20,34 @@ useradd $DEPLOY_USER -m -G $WEB_GROUP -s /bin/bash
 echo -e "\e[31m[RailsAPP] Setting Deploy user password ...\e[0m"
 passwd $DEPLOY_USER
 
+# 3. 授權 public key 登入 deploy user
+mkdir /home/$DEPLOY_USER/.ssh/
+cp ~/.ssh/authorized_keys /home/$DEPLOY_USER/.ssh/authorized_keys
 
-# 3. 加入 sudoer 要把 deploy user 加到 web group，因為 static file 也需要 nginx 也需要有權限存取
+# 4. 加入 sudoer 要把 deploy user 加到 web group，因為 static file 也需要 nginx 也需要有權限存取
 echo -e "\e[31m[RailsAPP] Add deploy user to sudoer list ...\e[0m"
 echo "$DEPLOY_USER  ALL=(ALL:ALL) ALL" >> /etc/sudoers
 
-# 3. 安裝 deploy user bash
+# 5. 安裝 deploy user bash
 echo -e "\e[31m[RailsAPP] Setting deploy user bash config ...\e[0m"
 mkdir /home/$DEPLOY_USER/.install
 cp install-bash.sh /home/$DEPLOY_USER/.install
-chown -R $DEPLOY_USER:$DEPLOY_USER /home/$DEPLOY_USER/.install
+chown -R $DEPLOY_USER:$DEPLOY_USER
 su -c "cd /home/$DEPLOY_USER/.install && ./install-bash.sh" $DEPLOY_USER
 
-# 4. 安裝 rvm stable
+# 6. 安裝 rvm stable
 echo -e "\e[31m[RailsAPP] Installing RVM ...\e[0m"
 su -l -c "\curl -sSL https://get.rvm.io | bash -s stable" $DEPLOY_USER
 
-# 5. 更新 RVM
+# 7. 更新 RVM
 echo -e "\e[31m[RailsAPP] Update RVM ...\e[0m"
 su -l -c "rvm get head" $DEPLOY_USER
 
-# 6. 安裝 Ruby + Bundler
+# 8. 安裝 Ruby + Bundler
 echo -e "\e[31m[RailsAPP] Installing Ruby $RUBY_VERSION ...\e[0m"
 su -l -c "rvm install $RUBY_VERSION" $DEPLOY_USER
 su -l -c "rvm --default use $RUBY_VERSION" $DEPLOY_USER
 
 echo -e "\e[31m[RailsAPP] Installing Bundler ...\e[0m"
 su -l -c "gem install bundler" $DEPLOY_USER
+
