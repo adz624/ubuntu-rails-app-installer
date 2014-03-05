@@ -22,5 +22,22 @@ else
   echo -e "\e[31m[Percona] source exists ...\e[0m"
 fi
 
-echo -e "\e[31m[Percona] Install mysql ...\e[0m"
-aptitude install percona-server-server-5.5 percona-server-client-5.5 -y
+if [ -f "/etc/init.d/mysql" ]; then
+  echo -e "\e[31mMySQL Already Installed, if you want to reinstall again, please remove mysql before run this script ...\e[0m"
+else
+  # 3. Setting mysql configuration
+  echo -e "\e[31m[Percona] Install mysql ...\e[0m"
+  aptitude install percona-server-server-5.5 percona-server-client-5.5 -y
+
+  # 4. Setting mysql configuration
+  echo -e "\e[31m[Percona] Setting mysql configuration ...\e[0m"
+  mv conf/percona.conf /etc/mysql/my.cnf
+
+  # 5. Cleanup mysql log file, to change bigger size
+  echo -e "\e[31m[Percona] Clearnup mysql log file ...\e[0m"
+  rm -rf /var/lib/mysql/*logfile*
+
+  # 6. Restart percona server
+  /etc/init.d/mysql restart
+fi
+
