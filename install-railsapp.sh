@@ -8,7 +8,7 @@ WEB_GROUP='www-data'
 
 # 1. 安裝 node.js for assets pipeline
 echo -e "\e[31m[RailsAPP] Install runtime javascript library for assets pipelie ...\e[0m"
-add-apt-repository ppa:chris-lea/node.js
+add-apt-repository ppa:chris-lea/node.js -y
 aptitude update
 aptitude install nodejs -y
 
