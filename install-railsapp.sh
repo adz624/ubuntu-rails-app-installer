@@ -2,7 +2,7 @@
 # @author eddie li (ADZ)
 # @updated_at 2014/3/5
 # @version 0.01
-DEPLOY_USER='deploy'
+DEPLOY_USER='rails'
 NGINX_USER='nginx'
 WEB_GROUP='www-data'
 RUBY_VERSION='2.1.0'
@@ -18,6 +18,8 @@ aptitude install nodejs -y
 # 2. 新增 rails application deploy user
 echo -e "\e[31m[RailsAPP] Create deploy user = $DEPLOY_USER ...\e[0m"
 useradd $DEPLOY_USER -m -G $WEB_GROUP -s /bin/bash
+echo -e "\e[31m[RailsAPP] Setting Deploy user password ...\e[0m"
+passwd $DEPLOY_USER
 
 # 3. 授權 public key 登入 deploy user
 mkdir /home/$DEPLOY_USER/.ssh/
