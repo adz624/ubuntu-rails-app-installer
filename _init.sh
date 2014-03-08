@@ -21,3 +21,10 @@ echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
 echo -e "\e[31mDownload Installer shell script ... \e[0m"
 git clone https://github.com/afunction/ubuntu-rails-app-installer.git installer
 rm -rf .ssh/config
+
+# 5. Fix command-not-found problem
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+locale-gen en_US.UTF-8
+sudo dpkg-reconfigure locales
