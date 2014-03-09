@@ -23,8 +23,14 @@ git clone https://github.com/afunction/ubuntu-rails-app-installer.git installer
 rm -rf .ssh/config
 
 # 5. Fix command-not-found problem
+echo -e "\e[31mFix ubuntu bug => command-not-found bug ... \e[0m"
 export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 locale-gen en_US.UTF-8
 sudo dpkg-reconfigure locales
+
+
+# 6. 設定時區
+echo -e "\e[31mSetup timezone ... \e[0m"
+dpkg-reconfigure tzdata
