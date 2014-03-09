@@ -3,8 +3,8 @@
 # @updated_at 2014/3/5
 # @version 0.01
 
-IF_SWAP_EXISTS=`cat /etc/fstab | grep '/swapfile' | wc -l`
-if [ $IF_SWAP_EXISTS == 0 ]; then
+IF_SWAP_EXISTS=`sudo swapon -s | wc -l`
+if [ $IF_SWAP_EXISTS == 1 ]; then
   echo -e "\e[31m[SWAP] Create swap file ...\e[0m"
   sudo dd if=/dev/zero of=/swapfile bs=1024 count=512k
   echo -e "\e[31m[SWAP] Mount swap ...\e[0m"
