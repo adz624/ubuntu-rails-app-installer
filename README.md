@@ -24,7 +24,16 @@ cd installer
 # 4. Install Nginx
 ./install-nginx.sh
 
-# 5. Install rails app (rvm, deploy user ... etc)
+# 6. [Optional] Redis-server (if you use resque, sidekiq you need it)
+./install-redis.sh
+
+# 7. SSH Setting
+#    [NOTICE] It will disable SSH password auth
+#             Make sure your public key in `~root/.ssh/authorized_keys`
+#             Before you run this shellscript
+./setup-ssh.sh
+
+# 8. Install rails app (rvm, deploy user ... etc)
 ./install-railsapp.sh
 ```
 
