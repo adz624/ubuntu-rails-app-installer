@@ -1,8 +1,6 @@
 ## Summary
 ==========================
-ubuntu-rails-app-installer is a shellscript and make you install the rails app production environment!
-
-This shell test on ubuntu 12.04, 13.04 already.
+ubuntu-rails-app-installer is a shell script and you can use these scripts to install rails app production environment quickly!
 
 ## Usage
 
@@ -28,14 +26,11 @@ cd installer
 ./install-redis.sh
 
 # 7. SSH Setting
-#    [NOTICE] It will disable SSH password auth
-#             Make sure your public key in `~root/.ssh/authorized_keys`
-#             Before you run this shellscript
+#    [NOTICE] It will disable SSH password auth,
+#             Make sure your public key in `~root/.ssh/authorized_keys`,
+#             before you run this script
 ./setup-ssh.sh
 
-# 8. Install rails app (rvm, deploy user ... etc)
+# 8. Install rails app deploy user, tools, libraries .. etc
 ./install-railsapp.sh
 ```
-
-
-
