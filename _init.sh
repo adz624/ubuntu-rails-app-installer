@@ -4,8 +4,10 @@
 # @version 0.01
 
 # 1. 更新 package list
-echo -e "\e[31mAptitude - Update & Upgrade\e[0m"
-aptitude update && aptitude upgrade
+echo -e "\e[31mAptitude - Update\e[0m"
+aptitude update
+echo -e "\e[31mAptitude - Upgrade\e[0m"
+aptitude upgrade
 
 # 2. 安裝常用工具
 echo -e "\e[31mInstall common tools\e[0m"
