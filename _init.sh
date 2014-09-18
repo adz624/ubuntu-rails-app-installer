@@ -7,7 +7,7 @@
 echo -e "\e[31mAptitude - Update\e[0m"
 aptitude update
 echo -e "\e[31mAptitude - Upgrade\e[0m"
-aptitude upgrade
+aptitude upgrade -y
 
 # 2. 安裝常用工具
 echo -e "\e[31mInstall common tools\e[0m"
